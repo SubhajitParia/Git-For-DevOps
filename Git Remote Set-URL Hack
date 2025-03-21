@@ -62,3 +62,8 @@ Writing objects: 100% (3/3), 386 bytes | 386.00 KiB/s, done.
 Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
 To github.com:SubhajitParia/Git-For-DevOps.git
    4696756..5a95f02  main -> main
+
+#########################################
+
+Remote to your local server changes show
+ git pull origin main
