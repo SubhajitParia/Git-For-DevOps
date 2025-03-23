@@ -67,3 +67,92 @@ To github.com:SubhajitParia/Git-For-DevOps.git
 
 Remote to your local server changes show
  git pull origin main
+
+
+
+
+
+
+##################################################################################
+ Branching Stratiges GitHub
+
+ubuntu@ip-172-31-14-239:~$ cd github/Git-For-DevOps
+ubuntu@ip-172-31-14-239:~/github/Git-For-DevOps$ git branch
+* main
+ubuntu@ip-172-31-14-239:~/github/Git-For-DevOps$ git checkout -b staging
+Switched to a new branch 'staging'
+ubuntu@ip-172-31-14-239:~/github/Git-For-DevOps$ git checkout -b dev
+Switched to a new branch 'dev'
+ubuntu@ip-172-31-14-239:~/github/Git-For-DevOps$ git branch
+* dev
+  main
+  staging
+ubuntu@ip-172-31-14-239:~/github/Git-For-DevOps$ ls
+'Git Remote Set-URL Hack'   README.md   comands.md
+ubuntu@ip-172-31-14-239:~/github/Git-For-DevOps$ vim branching.md
+ubuntu@ip-172-31-14-239:~/github/Git-For-DevOps$ git status
+On branch dev
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        branching.md
+
+nothing added to commit but untracked files present (use "git add" to track)
+ubuntu@ip-172-31-14-239:~/github/Git-For-DevOps$ git add branching.md
+ubuntu@ip-172-31-14-239:~/github/Git-For-DevOps$ git commmit -m "Added Branching Strategies"
+git: 'commmit' is not a git command. See 'git --help'.
+
+The most similar command is
+        commit
+ubuntu@ip-172-31-14-239:~/github/Git-For-DevOps$ git commit -m "Added Branching Stategies"
+[dev 173f6c0] Added Branching Stategies
+ 1 file changed, 1 insertion(+)
+ create mode 100644 branching.md
+ubuntu@ip-172-31-14-239:~/github/Git-For-DevOps$ git log --oneline
+173f6c0 (HEAD -> dev) Added Branching Stategies
+f276b48 (origin/main, origin/HEAD, staging, main) Update README.md
+f78d15e Update Git Remote Set-URL Hack
+5a95f02 added some change
+4696756 added some chenges
+7982892 Create Git Remote Set-URL Hack
+37819e6 added readme
+71cf32c Create comands.md
+ubuntu@ip-172-31-14-239:~/github/Git-For-DevOps$ git checkout staging
+Switched to branch 'staging'
+ubuntu@ip-172-31-14-239:~/github/Git-For-DevOps$ git status
+On branch staging
+nothing to commit, working tree clean
+ubuntu@ip-172-31-14-239:~/github/Git-For-DevOps$ ls
+'Git Remote Set-URL Hack'   README.md   comands.md
+ubuntu@ip-172-31-14-239:~/github/Git-For-DevOps$ git merge dev
+Updating f276b48..173f6c0
+Fast-forward
+ branching.md | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 branching.md
+ubuntu@ip-172-31-14-239:~/github/Git-For-DevOps$ ls
+'Git Remote Set-URL Hack'   README.md   branching.md   comands.md
+ubuntu@ip-172-31-14-239:~/github/Git-For-DevOps$ git log --oneline
+173f6c0 (HEAD -> staging, dev) Added Branching Stategies
+f276b48 (origin/main, origin/HEAD, main) Update README.md
+f78d15e Update Git Remote Set-URL Hack
+5a95f02 added some change
+4696756 added some chenges
+7982892 Create Git Remote Set-URL Hack
+37819e6 added readme
+71cf32c Create comands.md
+ubuntu@ip-172-31-14-239:~/github/Git-For-DevOps$ git status
+On branch staging
+nothing to commit, working tree clean
+ubuntu@ip-172-31-14-239:~/github/Git-For-DevOps$ git push origin staging
+Enumerating objects: 24, done.
+Counting objects: 100% (24/24), done.
+Compressing objects: 100% (22/22), done.
+Writing objects: 100% (24/24), 6.25 KiB | 2.08 MiB/s, done.
+Total 24 (delta 5), reused 3 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (5/5), done.
+remote:
+remote: Create a pull request for 'staging' on GitHub by visiting:
+remote:      https://github.com/SubhajitParia/Git-For-DevOps/pull/new/staging
+remote:
+To github.com:SubhajitParia/Git-For-DevOps.git
+ * [new branch]      staging -> staging
